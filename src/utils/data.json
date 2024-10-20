@@ -1,0 +1,62 @@
+[
+  {
+    "_id": "670ffcab466cc76ffe4b620d",
+    "visitor_name": "Marcos Oliveira",
+    "visitor_photoUrl": "https://example.com/foto-marcos.jpg",
+    "visit_reason": "Treinamento de equipe",
+    "checkInTime": "2024-10-13T14:45:30.794Z",
+    "host_name": "Ana Clara",
+    "host_department": "Treinamento",
+    "visit_email": "marcos.oliveira@example.com",
+    "visit_phone": "9176543210",
+    "visit_car_id": "VWX3456",
+    "visit_car_model": "Fiat Cronos",
+    "user_register": "Bruno Corso",
+    "__v": 0
+  },
+  {
+    "_id": "670ffcb8466cc76ffe4b6210",
+    "visitor_name": "Larissa Ribeiro",
+    "visitor_photoUrl": "https://example.com/foto-larissa.jpg",
+    "visit_reason": "Visita técnica",
+    "checkInTime": "2024-10-13T09:35:30.794Z",
+    "host_name": "Fernanda Lima",
+    "host_department": "Engenharia",
+    "visit_email": "larissa.ribeiro@example.com",
+    "visit_phone": "9123450987",
+    "visit_car_id": "EFG2345",
+    "visit_car_model": "Renault Duster",
+    "user_register": "Bruno Corso",
+    "__v": 0
+  },
+  {
+    "_id": "670ffcbe466cc76ffe4b6213",
+    "visitor_name": "Felipe Matos",
+    "visitor_photoUrl": "https://example.com/foto-felipe.jpg",
+    "visit_reason": "Inspeção de segurança",
+    "checkInTime": "2024-10-13T16:30:30.794Z",
+    "host_name": "André Santos",
+    "host_department": "Segurança",
+    "visit_email": "felipe.matos@example.com",
+    "visit_phone": "9198765432",
+    "visit_car_id": "BCD8901",
+    "visit_car_model": "Peugeot 208",
+    "user_register": "Bruno Corso",
+    "__v": 0
+  },
+  {
+    "_id": "671000ec1edb165615e886f2",
+    "visitor_name": "Patrícia Nunes",
+    "visitor_photoUrl": "https://example.com/foto-patricia.jpg",
+    "visit_reason": "Auditoria",
+    "checkInTime": "2024-10-13T12:15:30.794Z",
+    "host_name": "Carlos Eduardo",
+    "host_department": "Financeiro",
+    "visit_email": "patricia.nunes@example.com",
+    "visit_phone": "9187654321",
+    "visit_car_id": "YZA5678",
+    "visit_car_model": "Jeep Compass",
+    "user_register": "Bruno Corso",
+    "__v": 0
+  }
+]
