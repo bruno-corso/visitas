@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState, MutableRefObject } from 'react'
+import { useLocation } from 'react-router'
 
 function MenuLateral() {
   const [isOpen, setIsOpen] = useState(false)
   const sidebarRef = useRef(null)
+  const address = useLocation().pathname
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen)
@@ -71,7 +73,7 @@ function MenuLateral() {
         } md:translate-x-0`}
         aria-label="Sidebar"
       >
-        <div className="h-full px-3 py-4 overflow-y-auto bg-green">
+        <div className="h-full py-4 overflow-y-auto bg-green">
           <img
             src="/logo.png"
             alt="logo genérico"
@@ -81,15 +83,17 @@ function MenuLateral() {
             <li>
               <a
                 href="#"
-                className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-green-900 "
+                className={`flex items-center p-2 text-white  dark:text-white hover:bg-green-900 ${address === '/visita' ? 'bg-green-800' : 'opacity-100'}`}
               >
-                <span className="ms-3">Visitas da Semana</span>
+                <span className="flex-1 ms-3 whitespace-nowrap">
+                  Visitas da Semana
+                </span>
               </a>
             </li>
             <li>
               <a
                 href="#"
-                className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-green-900 "
+                className={`flex items-center p-2 text-white  dark:text-white hover:bg-green-900 ${address === '/historico' ? 'bg-green-800' : 'opacity-100'}`}
               >
                 <span className="flex-1 ms-3 whitespace-nowrap">
                   Histórico de Visitas
@@ -99,7 +103,7 @@ function MenuLateral() {
             <li>
               <a
                 href="#"
-                className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-green-900 "
+                className={`flex items-center p-2 text-white  dark:text-white hover:bg-green-900 ${address === '/visitante' ? 'bg-green-800' : 'opacity-100'}`}
               >
                 <span className="flex-1 ms-3 whitespace-nowrap">
                   Buscar Visitante
@@ -109,7 +113,7 @@ function MenuLateral() {
             <li>
               <a
                 href="#"
-                className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-green-900 "
+                className={`flex items-center p-2 text-white  dark:text-white hover:bg-green-900 ${address === '/cadastro' ? 'bg-green-800' : 'opacity-100'}`}
               >
                 <span className="flex-1 ms-3 whitespace-nowrap">
                   Cadastrar nova visita

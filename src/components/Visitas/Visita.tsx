@@ -2,8 +2,8 @@ import { FaRegTrashAlt, FaInfoCircle } from 'react-icons/fa'
 
 function Visita() {
   return (
-    <div className="flex">
-      <div className="text-sm ml-4 pl-4 pb-4 w-11/12 bg-white rounded-s-md grid gap-4 grid-cols-3 grid-rows-3 items-center">
+    <div className="flex ">
+      <div className=" shadow-sm text-sm ml-4 pl-4 pb-4 w-11/12 bg-white rounded-s-md grid gap-4 grid-cols-3 grid-rows-3 items-center">
         <p>
           Visitante: <span className="text-base font-semibold">Visitante</span>
         </p>
@@ -32,7 +32,7 @@ function Visita() {
           </span>
         </p>
       </div>
-      <div className="w-1/12 mr-4 rounded-e-md bg-green flex flex-col justify-around items-center">
+      <div className="shadow-sm w-1/12 mr-4 rounded-e-md bg-green flex flex-col justify-around items-center">
         <span className="cursor-pointer hover:opacity-70">
           <FaInfoCircle color="white" />
         </span>
