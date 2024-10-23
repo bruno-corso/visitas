@@ -7,6 +7,7 @@ function Rotas() {
     <Routes>
       <Route path="/" element={<Login />} />
       <Route path="/visita" element={<Visitas />} />
+      <Route path="/historico" element={<Visitas />} />
     </Routes>
   )
 }

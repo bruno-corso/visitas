@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, MutableRefObject } from 'react'
-import { useLocation } from 'react-router'
+import { useLocation, useNavigate } from 'react-router'
 
 function MenuLateral() {
   const [isOpen, setIsOpen] = useState(false)
@@ -38,6 +38,8 @@ function MenuLateral() {
   }
 
   useClickOutside(isOpen, sidebarRef, setIsOpen)
+
+  const navigate = useNavigate()
 
   return (
     <>
@@ -80,20 +82,20 @@ function MenuLateral() {
             className="w-1/3 mx-auto mb-8"
           />
           <ul className="space-y-2 font-medium">
-            <li>
+            <li onClick={() => navigate('/visita')}>
               <a
                 href="#"
-                className={`flex items-center p-2 text-white  dark:text-white hover:bg-green-900 ${address === '/visita' ? 'bg-green-800' : 'opacity-100'}`}
+                className={`flex items-center p-2 text-white  dark:text-white hover:bg-green-900 ${address === '/visita' ? 'bg-green-light text-green-900' : 'opacity-100'}`}
               >
                 <span className="flex-1 ms-3 whitespace-nowrap">
                   Visitas da Semana
                 </span>
               </a>
             </li>
-            <li>
+            <li onClick={() => navigate('/historico')}>
               <a
                 href="#"
-                className={`flex items-center p-2 text-white  dark:text-white hover:bg-green-900 ${address === '/historico' ? 'bg-green-800' : 'opacity-100'}`}
+                className={`flex items-center p-2 text-white  dark:text-white hover:bg-green-900 ${address === '/historico' ? 'bg-green-light text-green-900' : 'opacity-100'}`}
               >
                 <span className="flex-1 ms-3 whitespace-nowrap">
                   Histórico de Visitas
@@ -103,7 +105,7 @@ function MenuLateral() {
             <li>
               <a
                 href="#"
-                className={`flex items-center p-2 text-white  dark:text-white hover:bg-green-900 ${address === '/visitante' ? 'bg-green-800' : 'opacity-100'}`}
+                className={`flex items-center p-2 text-white  dark:text-white hover:bg-green-900 ${address === '/visitante' ? 'bg-green-light text-green-900' : 'opacity-100'}`}
               >
                 <span className="flex-1 ms-3 whitespace-nowrap">
                   Buscar Visitante
@@ -113,7 +115,7 @@ function MenuLateral() {
             <li>
               <a
                 href="#"
-                className={`flex items-center p-2 text-white  dark:text-white hover:bg-green-900 ${address === '/cadastro' ? 'bg-green-800' : 'opacity-100'}`}
+                className={`flex items-center p-2 text-white  dark:text-white hover:bg-green-900 ${address === '/cadastro' ? 'bg-green-light text-green-900' : 'opacity-100'}`}
               >
                 <span className="flex-1 ms-3 whitespace-nowrap">
                   Cadastrar nova visita
