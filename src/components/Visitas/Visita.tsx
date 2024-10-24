@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaRegTrashAlt, FaInfoCircle } from 'react-icons/fa'
-import ModalVisitante from '../Modal/modalVisitante'
+import ModalVisitante from '../Modal/ModalVisitante'
 
 function Visita() {
   const [showModal, setShowModal] = React.useState(false)
