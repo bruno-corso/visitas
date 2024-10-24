@@ -7,10 +7,6 @@ function ListaVisitas() {
       <Visita />
       <Visita />
       <Visita />
-      <Visita />
-      <Visita />
-      <Visita />
-      <Visita />
     </div>
   )
 }

@@ -84,7 +84,7 @@ function MenuLateral() {
           <ul className="space-y-2 font-medium">
             <li onClick={() => navigate('/visita')}>
               <a
-                href="#"
+                href=""
                 className={`flex items-center p-2 text-white  dark:text-white hover:bg-green-900 ${address === '/visita' ? 'bg-green-light text-green-900' : 'opacity-100'}`}
               >
                 <span className="flex-1 ms-3 whitespace-nowrap">
@@ -94,7 +94,7 @@ function MenuLateral() {
             </li>
             <li onClick={() => navigate('/historico')}>
               <a
-                href="#"
+                href=""
                 className={`flex items-center p-2 text-white  dark:text-white hover:bg-green-900 ${address === '/historico' ? 'bg-green-light text-green-900' : 'opacity-100'}`}
               >
                 <span className="flex-1 ms-3 whitespace-nowrap">
@@ -104,7 +104,7 @@ function MenuLateral() {
             </li>
             <li>
               <a
-                href="#"
+                href=""
                 className={`flex items-center p-2 text-white  dark:text-white hover:bg-green-900 ${address === '/visitante' ? 'bg-green-light text-green-900' : 'opacity-100'}`}
               >
                 <span className="flex-1 ms-3 whitespace-nowrap">
@@ -114,7 +114,7 @@ function MenuLateral() {
             </li>
             <li>
               <a
-                href="#"
+                href=""
                 className={`flex items-center p-2 text-white  dark:text-white hover:bg-green-900 ${address === '/cadastro' ? 'bg-green-light text-green-900' : 'opacity-100'}`}
               >
                 <span className="flex-1 ms-3 whitespace-nowrap">
