@@ -112,10 +112,10 @@ function MenuLateral() {
                 </span>
               </a>
             </li>
-            <li>
+            <li onClick={() => navigate('/inserir')}>
               <a
                 href=""
-                className={`flex items-center p-2 text-white  dark:text-white hover:bg-green- ${address === '/cadastro' ? 'bg-green-light text-green-dark' : 'opacity-100'}`}
+                className={`flex items-center p-2 text-white  dark:text-white hover:bg-green- ${address === '/inserir' ? 'bg-green-light text-green-dark' : 'opacity-100'}`}
               >
                 <span className="flex-1 ms-3 whitespace-nowrap">
                   Inserir Nova Visita
