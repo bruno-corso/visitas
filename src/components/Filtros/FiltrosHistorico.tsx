@@ -1,4 +1,4 @@
-function FiltrosVisita() {
+function FiltrosHistorico() {
   return (
     <div className="bg-green-950 ml-64 px-4 mt-0 flex justify-start gap-4 flex-col md:flex-row  md:py-4">
       {/* Data Inicio */}
@@ -88,4 +88,4 @@ function FiltrosVisita() {
   )
 }
 
-export default FiltrosVisita
+export default FiltrosHistorico

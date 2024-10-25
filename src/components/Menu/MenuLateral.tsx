@@ -49,7 +49,7 @@ function MenuLateral() {
         aria-controls="default-sidebar"
         type="button"
         onClick={toggleSidebar}
-        className="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-green-dark focus:outline-none focus:ring-2 focus:ring-gray-200"
+        className="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-green- focus:outline-none focus:ring-2 focus:ring-gray-200"
       >
         <span className="sr-only">Open sidebar</span>
         <svg
@@ -85,7 +85,7 @@ function MenuLateral() {
             <li onClick={() => navigate('/visita')}>
               <a
                 href=""
-                className={`flex items-center p-2 text-white  dark:text-white hover:bg-green-dark ${address === '/visita' ? 'bg-green-light text-green-dark' : 'opacity-100'}`}
+                className={`flex items-center p-2 text-white  dark:text-white hover:bg-green- ${address === '/visita' ? 'bg-green-light text-green-dark' : 'opacity-100'}`}
               >
                 <span className="flex-1 ms-3 whitespace-nowrap">
                   Visitas da Semana
@@ -95,30 +95,30 @@ function MenuLateral() {
             <li onClick={() => navigate('/historico')}>
               <a
                 href=""
-                className={`flex items-center p-2 text-white  dark:text-white hover:bg-green-dark ${address === '/historico' ? 'bg-green-light text-green-dark' : 'opacity-100'}`}
+                className={`flex items-center p-2 text-white  dark:text-white hover:bg-green- ${address === '/historico' ? 'bg-green-light text-green-dark' : 'opacity-100'}`}
               >
                 <span className="flex-1 ms-3 whitespace-nowrap">
                   Histórico de Visitas
                 </span>
               </a>
             </li>
-            <li>
+            <li onClick={() => navigate('/minhas')}>
               <a
                 href=""
-                className={`flex items-center p-2 text-white  dark:text-white hover:bg-green-dark ${address === '/visitante' ? 'bg-green-light text-green-dark' : 'opacity-100'}`}
+                className={`flex items-center p-2 text-white  dark:text-white hover:bg-green- ${address === '/minhas' ? 'bg-green-light text-green-dark' : 'opacity-100'}`}
               >
                 <span className="flex-1 ms-3 whitespace-nowrap">
-                  Buscar Visitante
+                  Minhas Visitas
                 </span>
               </a>
             </li>
             <li>
               <a
                 href=""
-                className={`flex items-center p-2 text-white  dark:text-white hover:bg-green-dark ${address === '/cadastro' ? 'bg-green-light text-green-dark' : 'opacity-100'}`}
+                className={`flex items-center p-2 text-white  dark:text-white hover:bg-green- ${address === '/cadastro' ? 'bg-green-light text-green-dark' : 'opacity-100'}`}
               >
                 <span className="flex-1 ms-3 whitespace-nowrap">
-                  Cadastrar nova visita
+                  Inserir Nova Visita
                 </span>
               </a>
             </li>
