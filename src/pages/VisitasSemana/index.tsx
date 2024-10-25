@@ -55,7 +55,9 @@ function VisitasSemana() {
       <div className="ml-64 my-8 flex flex-col gap-12">
         {dias.map((dia) => (
           <div className=" flex flex-col gap-4">
-            <h3 className="pl-4 text-2xl font-bold">{dia}</h3>
+            <h3 className="pl-4 pb-4 text-2xl font-bold text-green-dark border-b-2 border-white ">
+              {dia}
+            </h3>
             <Visita />
             <Visita />
             <Visita />

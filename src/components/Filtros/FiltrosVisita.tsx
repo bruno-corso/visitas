@@ -51,8 +51,8 @@ function FiltrosVisita() {
             name="visitante"
             type="text"
             placeholder="Digite aqui..."
-            className=" block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 ring-1 ring-inset
-             ring-gray-300 sm:text-sm sm:leading-6 "
+            className=" block w-full rounded-md border-2 py-1.5 px-2 text-gray-900 ring-1 ring-inset
+             ring-white sm:text-sm sm:leading-6 "
           />
         </div>
       </div>
@@ -70,10 +70,19 @@ function FiltrosVisita() {
             name="empresa"
             type="text"
             placeholder="Digite aqui..."
-            className=" block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 ring-1 ring-inset
-             ring-gray-300 sm:text-sm sm:leading-6"
+            className=" block w-full rounded-md border-2 borde py-1.5 px-2 text-gray-900 ring-1 ring-inset
+             ring-white sm:text-sm sm:leading-6"
           />
         </div>
+      </div>
+      {/* Botão */}
+      <div className="flex flex-col - justify-end">
+        <button
+          type="submit"
+          className=" rounded-md bg-green w-[100px] leading-6 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-950"
+        >
+          Filtrar
+        </button>
       </div>
     </div>
   )
