@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { AppDispatch, RootState } from '../../store'
+import { useDispatch, useSelector } from 'react-redux'
+import { enviarDadosCadastro, setDeptoCadastro, setEmailCadastro, setNomeCadastro, setSenhaCadastro } from '../../features/cadastroSlice'
 
 type Props = {
   cadastro: () => void
@@ -11,6 +14,9 @@ function FormCadastro({ cadastro }: Props) {
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible)
   }
+
+  const cadastroSelector = useSelector((state: RootState) => state.cadastroSlice)
+  const dispatch = useDispatch<AppDispatch>()
 
   return (
     <div className="my-8 container bg-green text-white rounded-md p-8 lg:w-9/12">
@@ -43,6 +49,8 @@ function FormCadastro({ cadastro }: Props) {
                       placeholder="Seu Nome"
                       autoComplete="username"
                       className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-green-950 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                      onChange={(e) => dispatch(setNomeCadastro(e.target.value))}
+                      value={cadastroSelector.nome_cadastro}
                     />
                   </div>
                 </div>
@@ -62,6 +70,8 @@ function FormCadastro({ cadastro }: Props) {
                     <select
                       id="departamento"
                       className="block flex-1 border-0 bg-transparent py-2 pl-1 text-green-950 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                      onChange={(e) => dispatch(setDeptoCadastro(e.target.value))}
+                      value={cadastroSelector.departamento_cadastro}
                     >
                       <option selected>Comercial</option>
                       <option>Operações</option>
@@ -91,6 +101,8 @@ function FormCadastro({ cadastro }: Props) {
                       placeholder="email@email.com"
                       autoComplete="email"
                       className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-green-950 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                      onChange={(e) => dispatch(setEmailCadastro(e.target.value))}
+                      value={cadastroSelector.email_cadastro}
                     />
                   </div>
                 </div>
@@ -113,6 +125,8 @@ function FormCadastro({ cadastro }: Props) {
                       type={passwordVisible ? 'text' : 'password'}
                       className="block w-full border-0 bg-transparent py-1.5 pl-1 text-green-950 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                       placeholder="Enter password"
+                      onChange={(e) => dispatch(setSenhaCadastro(e.target.value))}
+                      value={cadastroSelector.senha_cadastro}
                     />
                     <button
                       type="button"
@@ -247,6 +261,7 @@ function FormCadastro({ cadastro }: Props) {
           <button
             type="submit"
             className="rounded-md bg-green-950 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-950"
+            onClick={() => { dispatch(enviarDadosCadastro()) }}
           >
             <Link to={'/visita'}>Save</Link>
           </button>

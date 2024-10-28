@@ -16,7 +16,7 @@ function FormLogin({ cadastro }: Props) {
     setPasswordVisible(!passwordVisible)
   }
 
-  const inputEmail = useSelector((state: RootState) => state.loginSlice)
+  const loginSelector = useSelector((state: RootState) => state.loginSlice)
   const dispatch = useDispatch<AppDispatch>()
 
   return (
@@ -49,7 +49,7 @@ function FormLogin({ cadastro }: Props) {
                       autoComplete="email"
                       className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-green-950 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                       onChange={(e) => dispatch(setEmailLogin(e.target.value))}
-                      value={inputEmail.email_login}
+                      value={loginSelector.email_login}
                     />
                   </div>
                 </div>
@@ -73,7 +73,7 @@ function FormLogin({ cadastro }: Props) {
                       className="block w-full border-0 bg-transparent py-1.5 pl-1 text-green-950 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                       placeholder="Enter password"
                       onChange={(e) => dispatch(setSenhaLogin(e.target.value))}
-                      value={inputEmail.senha_login}
+                      value={loginSelector.senha_login}
                     />
                     <button
                       type="button"

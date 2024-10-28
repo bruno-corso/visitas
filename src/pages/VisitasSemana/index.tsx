@@ -54,7 +54,7 @@ function VisitasSemana() {
       <MenuLateral />
       <div className="ml-64 my-8 flex flex-col gap-12">
         {dias.map((dia) => (
-          <div className=" flex flex-col gap-4">
+          <div className=" flex flex-col gap-4" key={dia}>
             <h3 className="pl-4 pb-4 text-2xl font-bold text-green-dark border-b-2 border-white ">
               {dia}
             </h3>
