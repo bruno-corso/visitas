@@ -1,9 +1,13 @@
 import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { AppDispatch, RootState } from '../../store'
+import { enviarDadosLogin, setEmailLogin, setSenhaLogin } from '../../features/loginSlice'
 
 type Props = {
   cadastro: () => void
 }
+
 
 function FormLogin({ cadastro }: Props) {
   const [passwordVisible, setPasswordVisible] = useState(false)
@@ -11,6 +15,9 @@ function FormLogin({ cadastro }: Props) {
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible)
   }
+
+  const inputEmail = useSelector((state: RootState) => state.loginSlice)
+  const dispatch = useDispatch<AppDispatch>()
 
   return (
     <div className="my-8 container bg-green text-white rounded-md p-8 lg:w-9/12">
@@ -41,6 +48,8 @@ function FormLogin({ cadastro }: Props) {
                       placeholder="email@email.com"
                       autoComplete="email"
                       className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-green-950 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                      onChange={(e) => dispatch(setEmailLogin(e.target.value))}
+                      value={inputEmail.email_login}
                     />
                   </div>
                 </div>
@@ -63,6 +72,8 @@ function FormLogin({ cadastro }: Props) {
                       type={passwordVisible ? 'text' : 'password'}
                       className="block w-full border-0 bg-transparent py-1.5 pl-1 text-green-950 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                       placeholder="Enter password"
+                      onChange={(e) => dispatch(setSenhaLogin(e.target.value))}
+                      value={inputEmail.senha_login}
                     />
                     <button
                       type="button"
@@ -123,6 +134,7 @@ function FormLogin({ cadastro }: Props) {
 
         <button
           type="submit"
+          onClick={() => dispatch(enviarDadosLogin())}
           className="mt-4 rounded-md bg-green-950 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-950"
         >
           <Link to={'/visita'}>Entrar</Link>
