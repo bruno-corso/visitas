@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { AppDispatch, RootState } from '../../store'
 import { enviarDadosLogin, setEmailLogin, setSenhaLogin } from '../../features/loginSlice'
 
@@ -12,12 +12,24 @@ type Props = {
 function FormLogin({ cadastro }: Props) {
   const [passwordVisible, setPasswordVisible] = useState(false)
 
+  const navigate = useNavigate()
+
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible)
   }
 
   const loginSelector = useSelector((state: RootState) => state.loginSlice)
   const dispatch = useDispatch<AppDispatch>()
+
+  function loginComplete() {
+    if (loginSelector.email_login == '' || loginSelector.senha_login == '') {
+      return alert("Preencha todos os campos")
+    }
+
+    dispatch(enviarDadosLogin())
+    navigate('/visita')
+
+  }
 
   return (
     <div className="my-8 container bg-green text-white rounded-md p-8 lg:w-9/12">
@@ -134,10 +146,10 @@ function FormLogin({ cadastro }: Props) {
 
         <button
           type="submit"
-          onClick={() => dispatch(enviarDadosLogin())}
+          onClick={loginComplete}
           className="mt-4 rounded-md bg-green-950 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-950"
         >
-          <Link to={'/visita'}>Entrar</Link>
+          Entrar
         </button>
       </form>
       <p className="mt-4 text-sm font-thin">

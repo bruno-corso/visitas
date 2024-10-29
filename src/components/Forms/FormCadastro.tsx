@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { AppDispatch, RootState } from '../../store'
 import { useDispatch, useSelector } from 'react-redux'
 import { enviarDadosCadastro, setDeptoCadastro, setEmailCadastro, setNomeCadastro, setSenhaCadastro } from '../../features/cadastroSlice'
@@ -11,12 +11,24 @@ type Props = {
 function FormCadastro({ cadastro }: Props) {
   const [passwordVisible, setPasswordVisible] = useState(false)
 
+  const navigate = useNavigate()
+
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible)
   }
 
   const cadastroSelector = useSelector((state: RootState) => state.cadastroSlice)
   const dispatch = useDispatch<AppDispatch>()
+
+  function cadastroComplete() {
+    if (cadastroSelector.email_cadastro == '' || cadastroSelector.senha_cadastro == '' || cadastroSelector.email_cadastro == '' || cadastroSelector.departamento_cadastro == '') {
+      return alert("Preencha todos os campos")
+    }
+
+    dispatch(enviarDadosCadastro())
+    navigate('/visita')
+
+  }
 
   return (
     <div className="my-8 container bg-green text-white rounded-md p-8 lg:w-9/12">
@@ -73,7 +85,8 @@ function FormCadastro({ cadastro }: Props) {
                       onChange={(e) => dispatch(setDeptoCadastro(e.target.value))}
                       value={cadastroSelector.departamento_cadastro}
                     >
-                      <option selected>Comercial</option>
+                      <option selected></option>
+                      <option>Comercial</option>
                       <option>Operações</option>
                       <option>Diretoria</option>
                       <option>Serviços Gerais</option>
@@ -98,6 +111,7 @@ function FormCadastro({ cadastro }: Props) {
                       id="email"
                       name="email"
                       type="email"
+                      pattern='^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$'
                       placeholder="email@email.com"
                       autoComplete="email"
                       className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-green-950 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
@@ -261,9 +275,9 @@ function FormCadastro({ cadastro }: Props) {
           <button
             type="submit"
             className="rounded-md bg-green-950 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-950"
-            onClick={() => { dispatch(enviarDadosCadastro()) }}
+            onClick={cadastroComplete}
           >
-            <Link to={'/visita'}>Save</Link>
+            Save
           </button>
           <button
             type="button"
