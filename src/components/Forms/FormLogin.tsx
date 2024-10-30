@@ -2,12 +2,15 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { AppDispatch, RootState } from '../../store'
-import { enviarDadosLogin, setEmailLogin, setSenhaLogin } from '../../features/loginSlice'
+import {
+  enviarDadosLogin,
+  setEmailLogin,
+  setSenhaLogin,
+} from '../../features/loginSlice'
 
 type Props = {
   cadastro: () => void
 }
-
 
 function FormLogin({ cadastro }: Props) {
   const [passwordVisible, setPasswordVisible] = useState(false)
@@ -23,12 +26,11 @@ function FormLogin({ cadastro }: Props) {
 
   function loginComplete() {
     if (loginSelector.email_login == '' || loginSelector.senha_login == '') {
-      return alert("Preencha todos os campos")
+      return alert('Preencha todos os campos')
     }
 
     dispatch(enviarDadosLogin())
     navigate('/visita')
-
   }
 
   return (

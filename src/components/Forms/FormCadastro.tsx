@@ -2,7 +2,13 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AppDispatch, RootState } from '../../store'
 import { useDispatch, useSelector } from 'react-redux'
-import { enviarDadosCadastro, setDeptoCadastro, setEmailCadastro, setNomeCadastro, setSenhaCadastro } from '../../features/cadastroSlice'
+import {
+  enviarDadosCadastro,
+  setDeptoCadastro,
+  setEmailCadastro,
+  setNomeCadastro,
+  setSenhaCadastro,
+} from '../../features/cadastroSlice'
 
 type Props = {
   cadastro: () => void
@@ -17,17 +23,23 @@ function FormCadastro({ cadastro }: Props) {
     setPasswordVisible(!passwordVisible)
   }
 
-  const cadastroSelector = useSelector((state: RootState) => state.cadastroSlice)
+  const cadastroSelector = useSelector(
+    (state: RootState) => state.cadastroSlice
+  )
   const dispatch = useDispatch<AppDispatch>()
 
   function cadastroComplete() {
-    if (cadastroSelector.email_cadastro == '' || cadastroSelector.senha_cadastro == '' || cadastroSelector.email_cadastro == '' || cadastroSelector.departamento_cadastro == '') {
-      return alert("Preencha todos os campos")
+    if (
+      cadastroSelector.email_cadastro == '' ||
+      cadastroSelector.senha_cadastro == '' ||
+      cadastroSelector.email_cadastro == '' ||
+      cadastroSelector.departamento_cadastro == ''
+    ) {
+      return alert('Preencha todos os campos')
     }
 
     dispatch(enviarDadosCadastro())
     navigate('/visita')
-
   }
 
   return (
@@ -61,7 +73,9 @@ function FormCadastro({ cadastro }: Props) {
                       placeholder="Seu Nome"
                       autoComplete="username"
                       className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-green-950 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                      onChange={(e) => dispatch(setNomeCadastro(e.target.value))}
+                      onChange={(e) =>
+                        dispatch(setNomeCadastro(e.target.value))
+                      }
                       value={cadastroSelector.nome_cadastro}
                     />
                   </div>
@@ -82,7 +96,9 @@ function FormCadastro({ cadastro }: Props) {
                     <select
                       id="departamento"
                       className="block flex-1 border-0 bg-transparent py-2 pl-1 text-green-950 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                      onChange={(e) => dispatch(setDeptoCadastro(e.target.value))}
+                      onChange={(e) =>
+                        dispatch(setDeptoCadastro(e.target.value))
+                      }
                       value={cadastroSelector.departamento_cadastro}
                     >
                       <option selected></option>
@@ -111,11 +127,13 @@ function FormCadastro({ cadastro }: Props) {
                       id="email"
                       name="email"
                       type="email"
-                      pattern='^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$'
+                      pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
                       placeholder="email@email.com"
                       autoComplete="email"
                       className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-green-950 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                      onChange={(e) => dispatch(setEmailCadastro(e.target.value))}
+                      onChange={(e) =>
+                        dispatch(setEmailCadastro(e.target.value))
+                      }
                       value={cadastroSelector.email_cadastro}
                     />
                   </div>
@@ -139,7 +157,9 @@ function FormCadastro({ cadastro }: Props) {
                       type={passwordVisible ? 'text' : 'password'}
                       className="block w-full border-0 bg-transparent py-1.5 pl-1 text-green-950 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                       placeholder="Enter password"
-                      onChange={(e) => dispatch(setSenhaCadastro(e.target.value))}
+                      onChange={(e) =>
+                        dispatch(setSenhaCadastro(e.target.value))
+                      }
                       value={cadastroSelector.senha_cadastro}
                     />
                     <button
